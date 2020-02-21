@@ -1,0 +1,22 @@
+{
+  "name": "toxicologist",
+  "version": "1.0.0",
+  "description": "A Discord bot using Tensorflow.js to detect toxic messages.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.1.0",
+    "@tensorflow-models/toxicity": "^1.2.2",
+    "@tensorflow/tfjs": "^1.5.2",
+    "@tensorflow/tfjs-node": "^1.5.2",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.0.1",
+    "node-opus": "^0.3.3"
+  }
+}
