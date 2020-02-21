@@ -1,7 +1,7 @@
 {
   "name": "toxicologist",
   "version": "1.0.0",
-  "description": "A Discord bot using Tensorflow.js to detect toxic messages.",
+  "description": "A simple Discord bot that uses a TensorFlow.js model to detect toxic comments.",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
