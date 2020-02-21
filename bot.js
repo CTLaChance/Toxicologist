@@ -12,14 +12,14 @@ client.on('ready', () => {
 
 client.on('message', async msg => {
     console.log(`${msg.author.username} said: ${msg.content}`)
+
+    // Prevent the bot from responding to itself.
     if(msg.author.bot) return;
 
     const threshold = 0.9;
     toxicity.load(threshold).then(model => {
         model.classify(msg.content).then(predictions => {
-          // Get the overall toxicity result from this prediction.
-          console.log(predictions[6].results[0].match);
-
+          // Predictions[6] is the overall toxicity for the message.
           if (predictions[6].results[0].match) {
             console.log("This message is toxic.");
             
@@ -29,6 +29,7 @@ client.on('message', async msg => {
                 msg.member.voiceChannel.join().then( connection => {
                     let dispatcher = connection.playFile("./toxic.mp3", {volume: 0.2});
 
+                    // Dispatcher 'end' event is not firing. Temp workaround.
                     setTimeout(function(){
                         dispatcher.end();
                         msg.member.voiceChannel.leave();
@@ -36,7 +37,6 @@ client.on('message', async msg => {
                 });
             }
 
-            // React with toxic.
             msg
               .react("680243320852709473")
               .then(() => msg.react("🇹"))
