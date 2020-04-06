@@ -12,7 +12,7 @@
     "@discordjs/opus": "^0.1.0",
     "@tensorflow-models/toxicity": "^1.2.2",
     "@tensorflow/tfjs": "^1.5.2",
-    "@tensorflow/tfjs-node": "^1.5.2",
+    "@tensorflow/tfjs-node": "^1.2.3",
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
