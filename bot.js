@@ -4,6 +4,7 @@ let Discord = require('discord.js');
 let client = new Discord.Client();
 
 const whitelist = ["dumb", "stupid"];
+const overridelist = ["you", "your", "you're", "you are", "u r", "ur", "<@!"];
 
 client.login(`${process.env.CONNECTION_TOKEN}`)
 
@@ -17,10 +18,14 @@ client.on('message', async msg => {
     // Prevent the bot from responding to itself.
     if(msg.author.bot) return;
 
-    // Checks the string for a whitelisted word.
+    // Check the string for whitelisted words.
     if(whitelist.some(substring => msg.content.toLowerCase().includes(substring))) {
         console.log("This message contains a whitelisted word.");
-        return;
+        if(overridelist.some(substring => msg.content.toLowerCase().includes(substring))) {
+            console.log("This message contains an override word. It may be directed at another user.");
+        } else {
+            return;
+        }
     }
 
     toxicity.load(0.95).then(model => {
